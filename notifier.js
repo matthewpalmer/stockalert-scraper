@@ -90,9 +90,9 @@ function crossCheck(callback, previousStockPrice, currentStockPrice, desiredStoc
 
 function loopThroughUsers(callback) {
 		var arrayOfCurrentAlertsWithUsers = [];
-		//mongodb://localhost:27017/stockalertDev
+		
 
-		MongoClient.connect('mongodb://nodejitsu:5a241aff23f5e458c4522bf7fc2cbd5c@alex.mongohq.com:10002/nodejitsudb1837116682', function(err, db) {
+		MongoClient.connect('mongodb://localhost:27017/stockalertDev', function(err, db) {
 			var collection = db.collection('users');
 			collection.find({}).toArray(function(err, docs) {
 				    //console.log("retrieved records:");
@@ -119,7 +119,7 @@ function loopThroughUsers(callback) {
 function compareAlertAndScraped(callback) {
 	loopThroughUsers(function(arrayOfUserAlerts) {
 
-			MongoClient.connect('mongodb://nodejitsu:5a241aff23f5e458c4522bf7fc2cbd5c@alex.mongohq.com:10002/nodejitsudb1837116682', function(err, db) {
+			MongoClient.connect('mongodb://localhost:27017/stockalertDev', function(err, db) {
 				var stocksCollection = db.collection('stocks');
 				
 				for (var b in arrayOfUserAlerts) {

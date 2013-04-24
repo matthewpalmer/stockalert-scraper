@@ -2,8 +2,6 @@ var MongoClient = require('mongodb').MongoClient;
 var Stock = require('./stockModel');
 var request = require('request');
 
-//mongodb://nodejitsu:5a241aff23f5e458c4522bf7fc2cbd5c@alex.mongohq.com:10002/nodejitsudb1837116682
-//var notifier = require('../notifier');
 
 function scrape(callback, market, ticker) {
 
@@ -51,8 +49,8 @@ function addScraped(callback, exchange, name) {
 			} else {
 				
 				//console.log('here');
-				//MongoClient.connect("mongodb://localhost:27017/stockalertDev", function(err, db) {
-				MongoClient.connect('mongodb://nodejitsu:5a241aff23f5e458c4522bf7fc2cbd5c@alex.mongohq.com:10002/nodejitsudb1837116682', function(err, db) {
+				MongoClient.connect("mongodb://localhost:27017/stockalertDev", function(err, db) {
+				
 					var collection = db.collection('stocks');
 					//console.log('here');
 				collection.findOne({ticker: item.t}, function(err, doc) {
