@@ -31,7 +31,7 @@ function sendAlert(callback, item) {
 	    service: "Gmail",
 	    auth: {
 	        user: "matt@palmer.im",
-	        pass: "cvf142zaq569"
+	        pass: "PASSWORD"
 	    }
 	});
 
